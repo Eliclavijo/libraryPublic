@@ -24,7 +24,6 @@ stage('scan') {
                           -Dsonar.sources=/* \
                           -Dsonar.login=admin \
                           -Dsonar.password=admin1 \
-                          -Dsonar.tests=/*
             }
           }
       }
