@@ -1,13 +1,13 @@
 pipeline {
     agent any
   stages {
-    stage('Build') {
-      steps {
-        echo "[STAGE] Build"
-        sh "composer install"
-      }
-    }
-
+      stage('Checkout') {
+            steps {
+                script {
+                    checkout scm
+                }
+            }
+        }
     stage('SonarQube') {
       steps {
         echo "[STAGE] SonarQube"
