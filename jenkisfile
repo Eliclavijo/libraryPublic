@@ -2,30 +2,11 @@ pipeline {
     agent any
     
     stages {
-        stage('Preparar Ambiente') {
-            steps {
-                script {
-                    // Instala Composer
-                    sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
-                    sh 'composer install'
-                }
-            }
-        }
         stage('Clonar Repositorio') {
             steps {
                 checkout scm
             }
         }
-
-        stage('Instalar Dependencias') {
-            steps {
-                script {
-                    // Puedes instalar las dependencias de PHP aquí (por ejemplo, usando Composer)
-                    sh 'composer install'
-                }
-            }
-        }
-
         stage('Ejecutar Pruebas') {
             steps {
                 script {
