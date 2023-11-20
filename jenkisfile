@@ -1,46 +1,21 @@
 pipeline {
-    agent any
-    
-    stages {
-        stage('Clonar Repositorio') {
-            steps {
-                checkout scm
-            }
-        }
-stage('scan') {
-          environment {
-            // Previously defined in the Jenkins "Global Tool Configuration"
-            scannerHome = tool 'SonarQube-Scanner'
-          }
-          steps {
-            // "sonarqube" is the server configured in "Configure System"
-            withSonarQubeEnv('sonarqube') {
-              // Execute the SonarQube scanner with desired flags
-              sh "${scannerHome}/bin/sonar-scanner \
-                          -Dsonar.projectKey=SimpleExpressExample:Test \
-                          -Dsonar.projectName=SimpleExpressExample \
-                          -Dsonar.projectVersion=0.0.${BUILD_NUMBER} \
-                          -Dsonar.host.url=http://sonarqube:9000 \
-                          -Dsonar.sources=/* \
-                          -Dsonar.login=admin \
-                          -Dsonar.password=admin1"
-            }
-          }
+  agent {
+    label "php"
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        echo "[STAGE] Build"
+        sh "composer install"
       }
-        stage('Instalar PHPUnit') {
-            steps {
-                script {
-                    sh 'composer global require "phpunit/phpunit:^9"'
-                }
-            }
-        }
-        stage('Ejecutar Pruebas') {
-            steps {
-                script {
-                    // Ejecuta tus pruebas PHP aquí
-                    sh 'phpunit'
-                }
-            }
-        }
     }
+
+    stage('SonarQube') {
+      steps {
+        echo "[STAGE] SonarQube"
+        sh "sonar-scanner -Dsonar.projectKey=my-project -Dsonar.projectVersion=1.0.0 -Dsonar.sources=src/"
+      }
+    }
+  }
 }
