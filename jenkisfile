@@ -5,9 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Dar permisos a la carpeta
-                    sh 'chmod -R 755 /var/lib/apt/lists/partial'
-                    
                     // Actualizar los paquetes
                     sh 'apt-get update'
 
