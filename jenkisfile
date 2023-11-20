@@ -23,7 +23,8 @@ stage('scan') {
                           -Dsonar.host.url=http://sonarqube:9000 \
                           -Dsonar.sources=/* \
                           -Dsonar.login=admin \
-                          -Dsonar.password=admin1 
+                          -Dsonar.password=admin1 \ 
+                          -Dsonar.tests=/* "
             }
           }
       }
