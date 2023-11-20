@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    
     stages {
         stage('Preparar Ambiente') {
             steps {
@@ -7,10 +8,8 @@ pipeline {
                     // Instala Composer
                     sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
                     sh 'composer install'
-                }
             }
         }
-    stages {
         stage('Clonar Repositorio') {
             steps {
                 checkout scm
