@@ -1,6 +1,23 @@
-node {
-  stage('Build') {
-    sh 'composer install'
-    sh 'phpunit'
-  }
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // Instalar Composer
+                    sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
+                    
+                    // Instalar PHP (si no está instalado)
+                    sh 'apt-get update && apt-get install -y php-cli'
+                    
+                    // Ejecutar 'composer install'
+                    sh 'composer install'
+
+                    // Ejecutar 'phpunit'
+                    sh 'phpunit'
+                }
+            }
+        }
+    }
 }
