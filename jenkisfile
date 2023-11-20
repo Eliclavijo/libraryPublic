@@ -8,18 +8,24 @@ pipeline {
                 }
             }
         }
-   stage('SonarQube Scan') {
-    steps {
-        script {
-            // Descargar e instalar SonarScanner
-            sh 'wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-linux.zip'
-            sh 'unzip sonar-scanner-cli-4.6.2.2472-linux.zip'
-            sh 'export PATH=$PATH:/ruta/del/sonar-scanner/bin'
-
-            // Ejecutar el análisis de SonarQube
-            sh 'sonar-scanner -Dsonar.projectKey=my-project -Dsonar.projectVersion=1.0.0 -Dsonar.sources=src/'
+stage('Install SonarScanner') {
+            steps {
+                script {
+                    // Descargar e instalar SonarScanner
+                    bat 'curl -o sonar-scanner-cli-4.6.2.2472-windows.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.6.2.2472-windows.zip'
+                    bat 'Expand-Archive -Path sonar-scanner-cli-4.6.2.2472-windows.zip -DestinationPath C:\\sonar-scanner'
+                    bat 'set PATH=C:\\sonar-scanner\\bin;%PATH%'
+                }
+            }
         }
-    }
-}
+
+        stage('SonarQube Scan') {
+            steps {
+                script {
+                    // Ejecutar el análisis de SonarQube
+                    bat 'sonar-scanner -Dsonar.projectKey=my-project -Dsonar.projectVersion=1.0.0 -Dsonar.sources=src/'
+                }
+            }
+        }
   }
 }
