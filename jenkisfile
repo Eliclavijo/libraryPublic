@@ -2,25 +2,34 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Clonar Repositorio') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Instalar Dependencias') {
             steps {
                 script {
-                    // Actualizar los paquetes
-                    sh 'apt-get update'
-
-                    // Instalar PHP y Composer
-                    sh 'apt-get install -y php-cli composer'
-                    
-                    // Cambiar al directorio del código fuente (ajusta la ruta según tu configuración)
-                    dir('C:/ruta/al/proyecto') {
-                        // Ejecutar 'composer install'
-                        sh 'composer install'
-
-                        // Ejecutar 'phpunit'
-                        sh 'phpunit'
-                    }
+                    // Puedes instalar las dependencias de PHP aquí (por ejemplo, usando Composer)
+                    sh 'composer install'
                 }
             }
+        }
+
+        stage('Ejecutar Pruebas') {
+            steps {
+                script {
+                    // Ejecuta tus pruebas PHP aquí
+                    sh 'phpunit'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            // Puedes agregar acciones de post-procesamiento aquí, como notificaciones, etc.
         }
     }
 }
