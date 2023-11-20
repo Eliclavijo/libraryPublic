@@ -26,10 +26,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            // Puedes agregar acciones de post-procesamiento aquí, como notificaciones, etc.
-        }
-    }
 }
