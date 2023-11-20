@@ -144,3 +144,80 @@ nav ul li a {
 .active{
     border-bottom: solid 3px #AAA1C8;
 }
+
+.form-nuevo-libro{
+    padding: 0px 30px 30px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.form-nuevo-libro input{
+    border: solid 2px #D5C6E0;
+}
+
+.btn-form-new-book{
+    background-color: #AAA1C8;
+    padding: 10px;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-nuevo-libro p{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.table{
+    width: 95% !important;
+    margin-bottom: 30px;
+    margin: auto;
+}
+
+.imgLibro{
+    width: 150px;
+}
+
+.gridLibros{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    width: 95%;
+    margin: auto;
+}
+
+.headerLibro{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    gap: 10px;
+}
+
+.gridTextosCardLibro{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.cardLibro{
+    border-radius: 5px;
+    box-shadow: 4px 4px 17px #b5b5b5;
+    border: solid 1px #b5b5b5;
+    padding: 10px;
+}
+
+.textoCardLibro{
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.textoCardLibro span{
+    font-weight: normal;
+}
+
+.tituloCrdLibro{
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
