@@ -6,13 +6,13 @@ pipeline {
             steps {
                 script {
                     // Dar permisos a la carpeta
-                    sh 'sudo chmod -R 755 /var/lib/apt/lists/partial'
+                    sh 'chmod -R 755 /var/lib/apt/lists/partial'
                     
                     // Actualizar los paquetes
-                    sh 'sudo apt-get update'
+                    sh 'apt-get update'
 
                     // Instalar PHP y Composer
-                    sh 'sudo apt-get install -y php-cli composer'
+                    sh 'apt-get install -y php-cli composer'
                     
                     // Cambiar al directorio del código fuente (ajusta la ruta según tu configuración)
                     dir('C:/ruta/al/proyecto') {
