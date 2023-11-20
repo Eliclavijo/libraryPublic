@@ -45,6 +45,7 @@ $row = $resultado->fetch_assoc();
                     <ul>
                         <li><a href="home.php">Mis Libros</a></li>
                         <li class="active"><a href="perfil.php">Perfil</a></li>
+                         <li><a href="nuevoLibro.php">Insertar nuevo libro</a></li>
                     </ul>
                 </nav>
             </div>
