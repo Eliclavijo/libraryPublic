@@ -5,17 +5,23 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // Instalar PHP
-                    sh 'apt-get update && apt-get install -y php-cli'
-
-                    // Instalar Composer
-                    sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
+                    // Dar permisos a la carpeta
+                    sh 'sudo chmod -R 755 /var/lib/apt/lists/partial'
                     
-                    // Ejecutar 'composer install'
-                    sh 'composer install'
+                    // Actualizar los paquetes
+                    sh 'sudo apt-get update'
 
-                    // Ejecutar 'phpunit'
-                    sh 'phpunit'
+                    // Instalar PHP y Composer
+                    sh 'sudo apt-get install -y php-cli composer'
+                    
+                    // Cambiar al directorio del código fuente (ajusta la ruta según tu configuración)
+                    dir('C:/ruta/al/proyecto') {
+                        // Ejecutar 'composer install'
+                        sh 'composer install'
+
+                        // Ejecutar 'phpunit'
+                        sh 'phpunit'
+                    }
                 }
             }
         }
