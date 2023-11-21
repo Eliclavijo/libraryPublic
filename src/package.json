@@ -4,6 +4,6 @@
   "description": "Un proyecto de código PHP",
   "main": "index.php",
   "dependencies": {
-    "php": "^8.0"
+    "php": "^8.0.26"
   }
 }
