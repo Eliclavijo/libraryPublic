@@ -1,1 +1,9 @@
-
+{
+  "name": "Librarypublic",
+  "version": "1.0.0",
+  "description": "Un proyecto de código PHP",
+  "main": "index.php",
+  "dependencies": {
+    "php": "^8.0"
+  }
+}
