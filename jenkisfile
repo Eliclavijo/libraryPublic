@@ -9,7 +9,7 @@ pipeline {
       // General Variables for Pipeline
       PROJECT_ROOT = 'src'
       EMAIL_ADDRESS = 'eli.13.07@hotmail.com'
-      REGISTRY = 'librarypublic/librarypublic'
+      REGISTRY = '931024/docker-pirate'
   }
 
   stages {
