@@ -1,9 +1,11 @@
 {
-  "name": "Librarypublic",
+  "name": "package",
   "version": "1.0.0",
-  "description": "Un proyecto de código PHP",
+  "description": "Configuracion",
   "main": "index.php",
-  "dependencies": {
-    "php": "^8.0.26"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
