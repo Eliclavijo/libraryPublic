@@ -31,12 +31,7 @@ pipeline {
           sh "cd ${PROJECT_ROOT}; npm install"
         }
       }
-      /*stage('Unit tests') {
-        steps {
-          // Run unit tests
-          sh "cd ${PROJECT_ROOT}; npm run test"
-        }
-      }*/
+      
       stage('Generate coverage report') {
         steps {
           // Run code-coverage reports
