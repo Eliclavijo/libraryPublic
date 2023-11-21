@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  tools {
+      nodejs 'nodejs'
+  }
+
   environment {
       // General Variables for Pipeline
       PROJECT_ROOT = 'src'
