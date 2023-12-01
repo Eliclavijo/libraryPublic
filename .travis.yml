@@ -1,0 +1,22 @@
+languague: php
+
+php:
+ - 8.0.26
+
+before_script: 
+ - composer self-update
+ - composer install --prefer-source --no-interaction --dev
+notifications:
+  on_success: never
+  on_failure: always
+cache:
+ directories:
+   - SHOME/ .composer/cache/files
+   - vendor
+
+script:
+ - vendor/bin/phpunit test --coverage-text
+
+notifications: 
+ email: eli.13.07@hotmail.com
+  
