@@ -1,11 +1,20 @@
 languague: php
 php:
  - 8.0
-env:
-  - DB=mysql
-  
-before_script:
-  - if [[ "$DB" == "mysql" ]]; then mysql -e "INSERT INTO `tbl_usuarios`(`id`, `nombre`, `direccion`, `ciudad`, `telefono`, `correo`, `password`) VALUES (2,'usuario de prueba','calle 8','Bogota',00000,'prueba@prueba.com','123456')" -uroot; fi
+
+before_script: 
+ - composer self-update
+ - composer install --prefer-source --no-interaction --dev
+notifications:
+  on_success: never
+  on_failure: always
+cache:
+ directories:
+   - SHOME/ .composer/cache/files
+   - vendor
+
+script:
+ - vendor/bin/phpunit test --coverage-text
 
 notifications: 
  email: eli.13.07@hotmail.com
