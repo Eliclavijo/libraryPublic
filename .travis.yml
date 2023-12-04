@@ -1,6 +1,6 @@
 languague: php
 php:
- - 8.0.26
+ - 8.0
 
 env:
   - DB=mysql
