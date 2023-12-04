@@ -7,7 +7,7 @@ before_script:
   - composer install
   
 script:
-  - Vendor/bin/phpunit test --coverage-text
+  - Vendor/bin/phpunit test.php --coverage-text
   
 notifications: 
  email: eli.13.07@hotmail.com
