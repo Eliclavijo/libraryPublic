@@ -4,8 +4,8 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": ">=8.0",
-        "otra-dependencia": "versión"
+         "php": ">=8.0",
+         "otra-dependencia": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9"
