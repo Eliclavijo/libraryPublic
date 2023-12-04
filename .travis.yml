@@ -1,20 +1,13 @@
-languague: php
+language: php
 php:
- - 8.0
+  - 8.0
 
-before_script: 
- - composer self-update
-
-notifications:
-  on_success: never
-  on_failure: always
-cache:
- directories:
-   - SHOME/ .composer/cache/files
-   - vendor
-
+before_script:
+  - composer self-update
+  - composer install
+  
 script:
- - vendor/bin/phpunit test --coverage-text
-
+  - vendor/bin/phpunit test --coverage-text
+  
 notifications: 
  email: eli.13.07@hotmail.com
